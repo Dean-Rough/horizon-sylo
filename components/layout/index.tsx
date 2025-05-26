@@ -2,7 +2,7 @@ import Footer from '@/components/footer/FooterAdmin';
 import Navbar from '@/components/navbar/NavbarAdmin';
 import { routes } from '@/components/routes';
 import Sidebar from '@/components/sidebar/Sidebar';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 import { getActiveRoute } from '@/utils/navigation';
 import { User } from '@supabase/supabase-js';
 import { usePathname } from 'next/navigation';
