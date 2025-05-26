@@ -19,6 +19,14 @@ export const routes: IRoute[] = [
     collapse: false
   },
   {
+    name: 'Design Assistant',
+    path: '/dashboard/design-assistant',
+    icon: (
+      <HiOutlineCpuChip className="-mt-[7px] h-4 w-4 stroke-2 text-inherit" />
+    ),
+    collapse: false
+  },
+  {
     name: 'AI Chat',
     path: '/dashboard/ai-chat',
     icon: (

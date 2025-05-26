@@ -1,5 +1,5 @@
 
-import type { Config } from "tailwindcss" 
+import type { Config } from "tailwindcss"
 
 const config = {
   darkMode: ["class"],
@@ -47,14 +47,20 @@ const config = {
   	},
   	extend: {
   		fontFamily: {
-  			jakarta: [
-  				'Inter',
-  				'sans-serif'
-  			],
-  			poppins: [
-  				'Poppins',
-  				'sans-serif'
-  			]
+  			'sylo-display': ['Druk XCond Super', 'Arial Black', 'sans-serif'],
+  			'sylo-heading': ['Circular Std', 'system-ui', 'sans-serif'],
+  			'sylo-body': ['Circular Std', 'system-ui', 'sans-serif'],
+  			// Legacy font families for compatibility
+  			jakarta: ['Circular Std', 'system-ui', 'sans-serif'],
+  			poppins: ['Circular Std', 'system-ui', 'sans-serif']
+  		},
+  		fontSize: {
+  			'sylo-display-xl': ['clamp(4rem, 12vw, 12rem)', { lineHeight: '0.85' }],
+  			'sylo-display-lg': ['clamp(3rem, 8vw, 8rem)', { lineHeight: '0.85' }],
+  			'sylo-display-md': ['clamp(2rem, 6vw, 6rem)', { lineHeight: '0.85' }],
+  			'sylo-heading-xl': ['1rem', { lineHeight: '1.5' }],
+  			'sylo-heading-lg': ['1rem', { lineHeight: '1.5' }],
+  			'sylo-heading-md': ['1rem', { lineHeight: '1.5' }],
   		},
   		height: {
   			'300px': '300px',
@@ -62,6 +68,13 @@ const config = {
   			sidebar: 'calc(100vh - 32px)'
   		},
   		colors: {
+  			// Sylo Hyper-Simple Colors
+  			sylo: {
+  				tangerine: 'hsl(var(--sylo-tangerine))',
+  				pavement: 'hsl(var(--sylo-pavement))',
+  				blackish: 'hsl(var(--sylo-blackish))',
+  			},
+  			// Semantic colors
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

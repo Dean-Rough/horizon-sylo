@@ -1,19 +1,15 @@
-&nbsp;
+# Sylo Design Studio Platform
+
 <p align="center">
-  <a href="https://horizon-ui.com/boilerplate-shadcn" target="_blank">
-    <img src="https://i.ibb.co/DGSsjWL/top-boilerplate-shadcn-readme.png" alt="Horizon AI Boilerplate Admin Dashboard NextJS Shadcn UI" width="300px" max-width="400px">
-  </a>
+  <img src="./public/sylo-logo-tangerine.svg" alt="Sylo Logo" width="200px">
 </p>
 
 <p align="center">
-    <a style="color: #09090B; text-decoration: underline;" target="_blank" href="https://horizon-ui.com/boilerplate-shadcn">Website</a> •
-    <a style="color: #09090B; text-decoration: underline;" target="_blank" href="https://horizon-ui.com/docs-boilerplate/shadcn-components/auth-UI">Documentation</a> •
-    <a style="color: #09090B; text-decoration: underline;" target="_blank" href="https://horizon-ui.com/boilerplate-shadcn">PRO Version</a> •
-    <a style="color: #09090B; text-decoration: underline;" target="_blank" href="https://github.com/horizon-ui/shadcn-nextjs-boilerplate">Free Template</a> •
-    <a style="color: #09090B; text-decoration: underline;" target="_blank" href="https://twitter.com/horizon_ui">Twitter</a>
-<p align="center" style="max-width: 500px; margin: auto;">
-  Launch your SaaS startup within a few days with the first Admin Dashboard Shadcn UI NextJS boilerplate. Get started with Horizon AI Boilerplate today!
+  <strong>AI-Powered Design Studio Management Platform</strong>
+</p>
 
+<p align="center">
+  Interior design project management with Pinterest inspiration and SketchUp 3D modeling integration
 </p>
 
 &nbsp;
@@ -25,61 +21,108 @@
 
 &nbsp;
 
-### Introduction
+## 🎯 Overview
 
-Horizon AI Boilerplate is the first open-source Admin Dashboard OpenAI ChatGPT AI Template made for Shadcn UI, NextJS, and Tailwind CSS! Start creating outstanding Chat AI SaaS Apps faster.
+Sylo is a specialized project management platform for interior designers and architects, built on a foundation of AI-powered assistance. Starting from a Horizon UI boilerplate, we've evolved it into a comprehensive design studio management tool with MCP (Model Context Protocol) integrations.
 
-It comes with over 30+ dark/light frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining.
+### ✨ Key Features
 
-### Documentation
+- **🎨 Design-Focused AI Assistant** - Specialized prompts and workflows for interior design
+- **📌 Pinterest Integration** - Search inspiration and create mood boards directly in the platform
+- **🏗️ SketchUp Integration** - 3D modeling and space planning capabilities
+- **🎨 Sylo Brand System** - Custom typography, colors, and design language
+- **🔐 Authentication & Subscriptions** - Supabase auth with Stripe billing
+- **📱 Responsive Design** - Works on desktop, tablet, and mobile
 
-Each element is well presented in a very complex documentation. You can read more about the <a href="https://horizon-ui.com/docs-boilerplate/shadcn-components/chat" target="_blank">documentation here.</a>
+## 🚀 Quick Start
 
-### Quick Start
+### Prerequisites
 
-Install Horizon ChatGPT AI Template by running either of the following:
+- Node.js 18+ LTS
+- npm or yarn
+- Supabase account
+- OpenAI API key
+- Pinterest Developer account (optional)
+- SketchUp installed (optional)
 
-- Install NodeJS LTS from [NodeJs Official Page](https://nodejs.org/en/?ref=horizon-documentation) (NOTE: Product only works with LTS version)
+### Installation
 
-<br />
-
-Clone the repository with the following command:
-
+1. **Clone the repository:**
 ```bash
-git clone https://github.com/horizon-ui/shadcn-nextjs-boilerplate.git
+git clone https://github.com/Dean-Rough/horizon-sylo.git
+cd horizon-sylo/shadcn-nextjs-boilerplate
 ```
 
-Run in the terminal this command:
-
-```
+2. **Install dependencies:**
+```bash
 npm install
 ```
 
-<br />
-
+3. **Set up environment variables:**
+```bash
+cp .env.local.example .env.local
+# Edit .env.local with your API keys
 ```
-npm run init
-```
 
-<br />
-
-Then run this command to start your local server:
-
-```
+4. **Start the development server:**
+```bash
 npm run dev
+```
+
+Visit `http://localhost:3000` to see the application.
+
+## 🔧 Configuration
+
+### Required Environment Variables
+
+```bash
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+# OpenAI
+NEXT_PUBLIC_OPENAI_API_KEY=your_openai_api_key
+
+# MCP Servers (Optional)
+PINTEREST_API_KEY=your_pinterest_api_key
+PINTEREST_API_SECRET=your_pinterest_api_secret
+SKETCHUP_PATH=/path/to/sketchup
 ```
 &nbsp;
 
-### Your API Key is not working?
+## 🔌 MCP Integration Setup
 
-- Make sure you have an [OpenAI account](https://platform.openai.com/account) and a valid API key to use ChatGPT. We don't sell API keys.
-- Make sure you have your billing info added in [OpenAI Billing page](https://platform.openai.com/account/billing/overview). Without billing info, your API key will not work.
-- The app will connect to the OpenAI API server to check if your API Key is working properly. 
+Sylo includes Model Context Protocol (MCP) integrations for enhanced design workflows:
 
+### Pinterest MCP Server
+1. Get Pinterest API credentials from [Pinterest Developers](https://developers.pinterest.com/)
+2. Add credentials to `.env.local`
+3. Configure Claude Desktop with Pinterest MCP server
 
-### Figma Version
+### SketchUp MCP Server
+1. Install SketchUp 2020 or later
+2. Configure SketchUp path in `.env.local`
+3. Configure Claude Desktop with SketchUp MCP server
 
-Horizon AI Boilerplate is available in Figma format as well! [Check it out here](https://www.figma.com/community/file/1374394029061088369)! 🎨
+See `docs/mcp-setup.md` for detailed setup instructions.
+
+## 🎨 Design System
+
+Sylo features a custom brand system with:
+
+- **Typography**: Druk XCond Super for display, Circular Std for body text
+- **Colors**: Tangerine (#FF6700), Pavement (#DCDCDC), Blackish (#272727)
+- **Components**: Custom cards, buttons, and layouts
+- **Dark Theme**: Professional dark interface with light content cards
+
+## 📚 Documentation
+
+- [Setup Guide](./docs/setup-and-development.md)
+- [MCP Integration](./docs/mcp-setup.md)
+- [Product Requirements](./docs/product-requirements.md)
+- [Roadmap](./docs/roadmap.md)
+- [Technical Architecture](./docs/technical-architecture.md)
 
 
 ### Example Sections
