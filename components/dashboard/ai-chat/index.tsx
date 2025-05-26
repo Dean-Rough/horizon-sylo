@@ -122,8 +122,8 @@ export default function Chat(props: Props) {
     <DashboardLayout
       user={props.user}
       userDetails={props.userDetails}
-      title="AI Generator"
-      description="AI Generator"
+      title="General AI Assistant"
+      description="General purpose AI chat for any task"
     >
       <div className="relative flex w-full flex-col pt-[20px] md:pt-0">
         <img
@@ -201,7 +201,7 @@ export default function Chat(props: Props) {
               </div>
               <div className="flex w-full">
                 <div className="me-2.5 flex w-full rounded-lg border border-zinc-200 bg-white/10 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950">
-                  <p className="text-sm font-medium leading-6 text-zinc-950 dark:text-white md:text-base md:leading-[26px]">
+                  <p className="circular-light text-sm leading-6 text-zinc-950 dark:text-white md:text-base md:leading-[26px]">
                     {inputOnSubmit}
                   </p>
                 </div>
@@ -233,10 +233,9 @@ export default function Chat(props: Props) {
           </div>
 
           <div className="mt-5 flex flex-col items-center justify-center md:flex-row">
-            <p className="text-center text-xs text-zinc-500 dark:text-white">
-              Free Research Preview. ChatGPT may produce inaccurate information
-              about people, places, or facts. Consider checking important
-              information.
+            <p className="circular-light text-center text-xs text-zinc-500 dark:text-white">
+              General AI Assistant powered by OpenAI. For design-specific tasks,
+              try the Design Assistant with Pinterest and SketchUp integration.
             </p>
           </div>
         </div>

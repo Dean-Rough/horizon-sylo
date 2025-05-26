@@ -17,26 +17,26 @@ export default function AdminNavbar(props: {
       <div className="ml-[6px]">
         <div className="h-6 md:mb-2 md:w-[224px] md:pt-1">
           <a
-            className="hidden text-xs font-normal text-zinc-950 hover:underline dark:text-white dark:hover:text-white md:inline"
+            className="circular-light hidden text-xs text-zinc-950 hover:underline dark:text-white dark:hover:text-white md:inline"
             href=""
           >
-            Pages
+            Sylo
             <span className="mx-1 text-xs text-zinc-950 hover:text-zinc-950 dark:text-white">
               {' '}
               /{' '}
             </span>
           </a>
           <NavLink
-            className="text-xs font-normal capitalize text-zinc-950 hover:underline dark:text-white dark:hover:text-white"
+            className="circular-light text-xs capitalize text-zinc-950 hover:underline dark:text-white dark:hover:text-white"
             href="#"
           >
             {brandText}
           </NavLink>
         </div>
-        <p className="text-md shrink capitalize text-zinc-950 dark:text-white md:text-3xl">
+        <p className="circular-bold text-md shrink capitalize text-zinc-950 dark:text-white md:text-3xl">
           <NavLink
             href="#"
-            className="font-bold capitalize hover:text-zinc-950 dark:hover:text-white"
+            className="circular-bold capitalize hover:text-zinc-950 dark:hover:text-white"
           >
             {brandText}
           </NavLink>

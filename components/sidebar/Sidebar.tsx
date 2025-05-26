@@ -66,17 +66,19 @@ function Sidebar(props: SidebarProps) {
                 <HiX />
               </span>
               <div className={`mt-8 flex items-center justify-center`}>
-                <div className="me-2 flex h-[40px] w-[40px] items-center justify-center rounded-md bg-zinc-950 text-white dark:bg-white dark:text-zinc-950">
-                  <HiBolt className="h-5 w-5" />
-                </div>
-                <h5 className="me-2 text-2xl font-bold leading-5 text-zinc-950 dark:text-white">
-                  Horizon AI
+                <img
+                  src="/sylo-logo-white.svg"
+                  alt="Sylo Logo"
+                  className="h-8 w-auto me-3"
+                />
+                <h5 className="circular-bold text-xl leading-5 text-zinc-950 dark:text-white">
+                  SYLO
                 </h5>
                 <Badge
                   variant="outline"
-                  className="my-auto w-max px-2 py-0.5 text-xs text-zinc-950 dark:border-none dark:bg-zinc-800 dark:text-white"
+                  className="my-auto ml-2 w-max px-2 py-0.5 text-xs text-zinc-950 dark:border-none dark:bg-zinc-800 dark:text-white"
                 >
-                  FREE
+                  DESIGN
                 </Badge>
               </div>
               <div className="mb-8 mt-8 h-px bg-zinc-200 dark:bg-white/10" />

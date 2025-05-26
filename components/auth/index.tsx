@@ -30,8 +30,8 @@ export default function DefaultAuthLayout(props: DefaultAuthLayoutProps) {
         <a className="mt-10 w-fit text-zinc-950 dark:text-white" href="/">
           <div className="flex w-fit items-center lg:pl-0 lg:pt-0 xl:pt-0">
             <FaChevronLeft className="mr-3 h-[13px] w-[8px] text-zinc-950 dark:text-white" />
-            <p className="ml-0 text-sm text-zinc-950 dark:text-white">
-              Back to the website
+            <p className="circular-light ml-0 text-sm text-zinc-950 dark:text-white">
+              Back to Sylo
             </p>
           </div>
         </a>
@@ -41,22 +41,23 @@ export default function DefaultAuthLayout(props: DefaultAuthLayoutProps) {
             <div
               className={`mb-[160px] mt-8 flex w-full items-center justify-center `}
             >
-              <div className="me-2 flex h-[76px] w-[76px] items-center justify-center rounded-md bg-white text-zinc-950 dark:text-zinc-900">
-                <HiBolt className="h-9 w-9" />
-              </div>
-              <h5 className="text-4xl font-bold leading-5 text-white">
-                Horizon AI
+              <img
+                src="/sylo-logo-white.svg"
+                alt="Sylo Logo"
+                className="h-16 w-auto me-4"
+              />
+              <h5 className="circular-bold text-4xl leading-5 text-white">
+                SYLO
               </h5>
             </div>
             <div
               className={`flex w-full flex-col items-center justify-center text-2xl font-bold text-white`}
             >
-              <h4 className="mb-5 flex w-[600px] items-center justify-center rounded-md text-center text-2xl font-bold">
-                “This library has saved me countless hours of work and helped me
-                deliver stunning designs to my clients faster than ever before.”
+              <h4 className="circular-light mb-5 flex w-[600px] items-center justify-center rounded-md text-center text-2xl">
+                “Sylo has transformed how we manage design projects and collaborate with clients. The AI assistance is incredible.”
               </h4>
-              <h5 className="text-xl font-medium leading-5 text-zinc-300">
-                Sofia Davis - CTO Horizon AI
+              <h5 className="circular-light text-xl leading-5 text-zinc-300">
+                Sarah Chen - Interior Designer
               </h5>
             </div>
           </div>
