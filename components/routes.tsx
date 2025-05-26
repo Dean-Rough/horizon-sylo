@@ -8,7 +8,8 @@ import {
   HiOutlineCog8Tooth,
   HiOutlineCreditCard,
   HiOutlineDocumentText,
-  HiOutlineCurrencyDollar
+  HiOutlineCurrencyDollar,
+  HiOutlineBriefcase
 } from 'react-icons/hi2';
 
 export const routes: IRoute[] = [
@@ -16,6 +17,22 @@ export const routes: IRoute[] = [
     name: 'Design Studio',
     path: '/dashboard/main',
     icon: <HiOutlineHome className="-mt-[7px] h-4 w-4 stroke-2 text-inherit" />,
+    collapse: false
+  },
+  {
+    name: 'Projects',
+    path: '/dashboard/projects',
+    icon: (
+      <HiOutlineBriefcase className="-mt-[7px] h-4 w-4 stroke-2 text-inherit" />
+    ),
+    collapse: false
+  },
+  {
+    name: 'Clients',
+    path: '/dashboard/clients',
+    icon: (
+      <HiOutlineUsers className="-mt-[7px] h-4 w-4 stroke-2 text-inherit" />
+    ),
     collapse: false
   },
   {
