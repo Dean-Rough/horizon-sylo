@@ -7,11 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { User } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react';
-import { 
-  HiPlus, 
-  HiMagnifyingGlass, 
-  HiEye, 
-  HiPencil, 
+import { createClient } from '@/utils/supabase/client';
+import { getClients } from '@/utils/supabase/clients';
+import {
+  HiPlus,
+  HiMagnifyingGlass,
+  HiEye,
+  HiPencil,
   HiTrash,
   HiUser,
   HiOfficeBuilding,
@@ -119,10 +121,39 @@ const getContactMethodIcon = (method: string) => {
 };
 
 export default function Clients(props: Props) {
-  const [clients, setClients] = useState<Client[]>(mockClients);
+  const [clients, setClients] = useState<Client[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredClients, setFilteredClients] = useState<Client[]>(mockClients);
+  const [filteredClients, setFilteredClients] = useState<Client[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  const supabase = createClient();
+
+  // Fetch clients from Supabase
+  useEffect(() => {
+    async function fetchClients() {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const result = await getClients(supabase);
+        setClients(result.clients);
+        setFilteredClients(result.clients);
+      } catch (err) {
+        console.error('Error fetching clients:', err);
+        setError('Failed to load clients');
+        // Fallback to mock data if database isn't ready
+        setClients(mockClients);
+        setFilteredClients(mockClients);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchClients();
+  }, []);
+
+  // Filter clients based on search term
   useEffect(() => {
     const filtered = clients.filter(client =>
       client.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -176,8 +207,26 @@ export default function Clients(props: Props) {
           </div>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <p className="circular-light text-muted-foreground">Loading clients...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-12">
+            <p className="circular-light text-red-500">{error}</p>
+            <p className="circular-light text-sm text-muted-foreground mt-2">
+              Showing sample data instead
+            </p>
+          </div>
+        )}
+
         {/* Clients Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {!loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredClients.map((client) => (
             <Card key={client.id} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-3">
@@ -218,7 +267,7 @@ export default function Clients(props: Props) {
                     {client.first_name} {client.last_name}
                   </p>
                 )}
-                
+
                 <div className="space-y-2 text-sm mb-4">
                   {client.email && (
                     <div className="flex items-center gap-2">
@@ -226,14 +275,14 @@ export default function Clients(props: Props) {
                       <span className="circular-light text-muted-foreground">{client.email}</span>
                     </div>
                   )}
-                  
+
                   {client.phone && (
                     <div className="flex items-center gap-2">
                       <HiPhone className="h-3 w-3 text-muted-foreground" />
                       <span className="circular-light text-muted-foreground">{client.phone}</span>
                     </div>
                   )}
-                  
+
                   {client.city && client.state && (
                     <div className="flex items-center gap-2">
                       <span className="circular-light text-muted-foreground">
@@ -279,9 +328,10 @@ export default function Clients(props: Props) {
               </CardContent>
             </Card>
           ))}
-        </div>
+          </div>
+        )}
 
-        {filteredClients.length === 0 && (
+        {!loading && filteredClients.length === 0 && (
           <div className="text-center py-12">
             <p className="circular-light text-muted-foreground">
               {searchTerm ? 'No clients found matching your search.' : 'No clients yet. Add your first client!'}

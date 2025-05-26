@@ -7,11 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { User } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react';
-import { 
-  HiPlus, 
-  HiMagnifyingGlass, 
-  HiEye, 
-  HiPencil, 
+import { createClient } from '@/utils/supabase/client';
+import { getProjects } from '@/utils/supabase/projects';
+import {
+  HiPlus,
+  HiMagnifyingGlass,
+  HiEye,
+  HiPencil,
   HiTrash,
   HiHome,
   HiOfficeBuilding,
@@ -133,16 +135,45 @@ const getProjectTypeIcon = (type: string) => {
 };
 
 export default function Projects(props: Props) {
-  const [projects, setProjects] = useState<Project[]>(mockProjects);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(mockProjects);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
+  const supabase = createClient();
+
+  // Fetch projects from Supabase
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const result = await getProjects(supabase);
+        setProjects(result.projects);
+        setFilteredProjects(result.projects);
+      } catch (err) {
+        console.error('Error fetching projects:', err);
+        setError('Failed to load projects');
+        // Fallback to mock data if database isn't ready
+        setProjects(mockProjects);
+        setFilteredProjects(mockProjects);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
+
+  // Filter projects based on search term
   useEffect(() => {
     const filtered = projects.filter(project =>
       project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       project.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.client?.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.client?.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.client?.first_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.client?.last_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       project.client?.company_name?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProjects(filtered);
@@ -190,8 +221,26 @@ export default function Projects(props: Props) {
           </div>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="text-center py-12">
+            <p className="circular-light text-muted-foreground">Loading projects...</p>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="text-center py-12">
+            <p className="circular-light text-red-500">{error}</p>
+            <p className="circular-light text-sm text-muted-foreground mt-2">
+              Showing sample data instead
+            </p>
+          </div>
+        )}
+
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {!loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <Card key={project.id} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-3">
@@ -225,16 +274,16 @@ export default function Projects(props: Props) {
                 <p className="circular-light text-sm text-muted-foreground mb-4">
                   {project.description}
                 </p>
-                
+
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="circular-light text-muted-foreground">Client:</span>
                     <span className="circular-bold">
-                      {project.client?.company_name || 
+                      {project.client?.company_name ||
                        `${project.client?.first_name} ${project.client?.last_name}`}
                     </span>
                   </div>
-                  
+
                   {project.budget_min && (
                     <div className="flex justify-between">
                       <span className="circular-light text-muted-foreground">Budget:</span>
@@ -243,14 +292,14 @@ export default function Projects(props: Props) {
                       </span>
                     </div>
                   )}
-                  
+
                   {project.square_footage && (
                     <div className="flex justify-between">
                       <span className="circular-light text-muted-foreground">Size:</span>
                       <span className="circular-bold">{project.square_footage.toLocaleString()} sq ft</span>
                     </div>
                   )}
-                  
+
                   {project.target_completion_date && (
                     <div className="flex justify-between">
                       <span className="circular-light text-muted-foreground">Due:</span>
@@ -263,9 +312,10 @@ export default function Projects(props: Props) {
               </CardContent>
             </Card>
           ))}
-        </div>
+          </div>
+        )}
 
-        {filteredProjects.length === 0 && (
+        {!loading && filteredProjects.length === 0 && (
           <div className="text-center py-12">
             <p className="circular-light text-muted-foreground">
               {searchTerm ? 'No projects found matching your search.' : 'No projects yet. Create your first project!'}
