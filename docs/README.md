@@ -1,32 +1,132 @@
-# Sylo Documentation
+# Sylo - AI-Powered Design Management Platform
 
-Sylo is a specialized project management platform designed for interior designers and architects, featuring AI-powered assistance, material libraries, and client collaboration tools.
+## Overview
 
-## 🚀 Current Status
+Sylo is a professional project management platform for interior designers and architects, combining AI assistance, material libraries, and client collaboration.
 
-**✅ Foundation Complete (Phase 0)**
-- Environment variables configured and working
-- Supabase connection established with database schema applied
-- All Shadcn UI components installed (46 components)
-- Development server running locally
-- Git repository set up and code pushed to GitHub
-- Ready for Vercel deployment
+## Documentation
 
-**🎯 Next: Phase 1 - Design-Focused AI**
+## Core Documentation
+- [Architecture](./ARCHITECTURE.md) - System design and technical architecture
+- [Schema](./SCHEMA.md) - Database structure and migrations
+- [Components](./COMPONENTS.md) - UI component library
+- [Deployment](./DEPLOYMENT.md) - Deployment guide and configuration
+- [MCP](./MCP.md) - AI integration setup
+- [Sylo-core](./sylo-core.md) - AI core orchestration engine
+- [Roadmap](./roadmap-v3.md) - Development timeline and milestones
 
 ## Quick Start
 
-1. **Setup**: See [Setup & Development Guide](./setup-and-development.md)
-2. **Deployment**: Check [Deployment Status](./deployment-status.md) 🚀
-3. **Product Overview**: Read [Product Requirements](./product-requirements.md)
-4. **Technical Details**: Check [Technical Architecture](./technical-architecture.md)
-5. **UI Components**: Review [UI Design System](./ui-components.md)
-6. **Roadmap**: View [Development Roadmap](./roadmap.md)
+```bash
+# Clone repository
+git clone https://github.com/Dean-Rough/horizon-sylo
+cd sylo
 
-## Project Overview
+# Install dependencies
+npm install
 
-- **Framework**: Next.js 15 with React 19
-- **Database**: PostgreSQL via Supabase ✅
-- **UI**: Shadcn UI with Tailwind CSS ✅
-- **AI**: OpenAI GPT-4 integration ✅
-- **Deployment**: Vercel (ready to deploy)
+# Configure environment
+cp .env.example .env.local
+
+# Start development server
+npm run dev
+```
+
+## Environment Setup
+
+```bash
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# OpenAI Configuration
+NEXT_PUBLIC_OPENAI_API_KEY=
+NEXT_PUBLIC_OPENAI_ASSISTANT_KEY=
+
+# MCP Configuration
+PINTEREST_API_KEY=
+PINTEREST_API_SECRET=
+SKETCHUP_PATH=
+
+# Application Configuration
+NEXT_PUBLIC_SITE_URL=
+```
+
+## Project Structure
+
+```
+sylo/
+├── app/          # Next.js app router
+├── components/   # React components
+│   ├── ui/      # Base components
+│   └── features/ # Feature components
+├── lib/         # Shared utilities
+├── styles/      # Global styles
+└── types/       # TypeScript types
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **UI**: React 19, Shadcn UI
+- **Database**: Supabase (PostgreSQL)
+- **AI**: OpenAI GPT-4
+- **Integrations**: Pinterest, SketchUp
+- **Deploy**: Vercel
+
+## Features
+
+### Project Management
+- Client/project organization
+- Task tracking
+- Resource allocation
+- Timeline management
+
+### Material Library
+- Material database
+- Sample tracking
+- Supplier integration
+- Sustainability metrics
+
+### Client Portal
+- Project progress
+- Design approvals
+- Asset management
+- Communication
+
+### AI Assistant
+- Design recommendations
+- Project automation
+- Content generation
+- Resource optimization
+
+## Development
+
+```bash
+# Run development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build production
+npm run build
+```
+
+## Contributing
+
+1. Fork repository
+2. Create feature branch
+3. Follow coding standards
+4. Submit pull request
+
+## Support
+
+- Issues: GitHub Issues
+- Security: security@sylo.design
+- Status: status.sylo.design
+
+## License
+
+Proprietary. All rights reserved.
