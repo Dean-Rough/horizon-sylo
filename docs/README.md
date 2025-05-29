@@ -13,7 +13,7 @@ Sylo is a professional project management platform for interior designers and ar
 - [Deployment](./DEPLOYMENT.md) - Deployment guide and configuration
 - [MCP](./MCP.md) - AI integration setup
 - [Sylo-core](./sylo-core.md) - AI core orchestration engine
-- [Roadmap](./roadmap-v3.md) - Development timeline and milestones
+- [Roadmap](./roadmap.md) - Development timeline and milestones
 
 ## Quick Start
 
@@ -52,6 +52,8 @@ SKETCHUP_PATH=
 # Application Configuration
 NEXT_PUBLIC_SITE_URL=
 ```
+
+See [`SETUP.md`](./SETUP.md) for complete environment configuration and development setup instructions.
 
 ## Project Structure
 

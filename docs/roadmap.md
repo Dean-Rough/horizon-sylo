@@ -21,7 +21,7 @@
   - Database schema
   - Authentication
 
-## Phase 1: Project Core (4 Weeks)
+## Phase 2: Project Core (4 Weeks)
 - [ ] Database implementation
   - Projects table
   - Clients table
@@ -33,7 +33,7 @@
   - File handling
   - User roles
 
-## Phase 2: Design Tools (4 Weeks)
+## Phase 3: Design Tools (4 Weeks)
 - [ ] MCP integration
   - Pinterest setup
   - SketchUp setup
@@ -45,7 +45,7 @@
   - Sample tracking
   - Supplier integration
 
-## Phase 3: Client Portal (3 Weeks)
+## Phase 4: Client Portal (3 Weeks)
 - [ ] Authentication
   - Client accounts
   - Role permissions
@@ -56,7 +56,7 @@
   - Feedback system
   - Approvals
 
-## Phase 4: AI Features (3 Weeks)
+## Phase 5: AI Features (3 Weeks)
 - [ ] OpenAI integration
   - API setup
   - Context management
@@ -66,7 +66,7 @@
   - Project planner
   - Content generator
 
-## Phase 5: Mobile (4 Weeks)
+## Phase 6: Mobile (4 Weeks)
 - [ ] React Native app
   - Core screens
   - Offline support
@@ -78,7 +78,7 @@
   - Notes
   - Sketches
 
-## Phase 6: Enterprise (4 Weeks)
+## Phase 7: Enterprise (4 Weeks)
 - [ ] Advanced features
   - Multi-tenant
   - White-label
@@ -90,49 +90,6 @@
   - AutoCAD
   - Supplier APIs
 
-## Testing Requirements
+## Quality Standards
 
-### Unit Tests
-- Components: 90% coverage
-- Utils: 95% coverage
-- API: 85% coverage
-
-### Integration Tests
-- Auth flows
-- CRUD operations
-- File operations
-- Real-time updates
-
-### E2E Tests
-- User journeys
-- Client portal
-- Mobile features
-- AI interactions
-
-## Performance Targets
-
-### Frontend
-- First load: < 2s
-- Subsequent: < 1s
-- Offline support
-- PWA ready
-
-### Backend
-- API response: < 200ms
-- Real-time sync: < 100ms
-- 99.9% uptime
-- Auto-scaling
-
-## Security Measures
-
-### Authentication
-- Role-based access control
-- SSO integration
-- 2FA support
-- Session management
-
-### Data Protection
-- Encryption at rest and in transit
-- Regular backups
-- Audit logging
-- GDPR compliance
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for detailed testing requirements, performance targets, and security measures.
