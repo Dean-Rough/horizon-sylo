@@ -42,7 +42,7 @@ It abstracts these services behind a unified command interface, simplifying clie
 
 ---
 
-For more details, see the [Sylo-core API Design Document](#) (to be created).
+For more details, see the Sylo-core API Design Document (to be created).
 
 ---
 

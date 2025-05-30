@@ -1,95 +1,30 @@
-# Development Roadmap
+# Sylo-core Roadmap
 
-## Phase 0: Sylo-core Build (2 Weeks)
-- [ ] Design and implement the Sylo-core AI orchestration engine
-  - Centralized command dispatcher API
-  - Integration with existing APIs and services
-  - Authentication and validation
-  - Extensibility for future commands
-- [ ] Testing and documentation of Sylo-core
+## Completed Progress
 
-## Phase 1: Foundation (2 Weeks)
-- [ ] Project setup
-  - Next.js 15
-  - Supabase
-  - Shadcn UI
-  - TypeScript config
-  - Testing framework
-- [ ] Core architecture
-  - Component structure
-  - API routes
-  - Database schema
-  - Authentication
+- Core AI orchestration engine implemented with command registry and orchestrator
+- 40 commands across project, task, and material categories developed and registered
+- API endpoint `/api/sylo-core` for command execution and system info created
+- Comprehensive test suite for core commands and services created and run
+- Integrations management UI added for external service connections and permission control
+- Package.json scripts added for development, testing, pushing, and deployment
 
-## Phase 2: Project Core (4 Weeks)
-- [ ] Database implementation
-  - Projects table
-  - Clients table
-  - Tasks table
-  - Files table
-- [ ] Core features
-  - Project CRUD
-  - Task management
-  - File handling
-  - User roles
+## Next Steps
 
-## Phase 3: Design Tools (4 Weeks)
-- [ ] MCP integration
-  - Pinterest setup
-  - SketchUp setup
-  - API endpoints
-  - Error handling
-- [ ] Material library
-  - Database schema
-  - Search system
-  - Sample tracking
-  - Supplier integration
+- Expand test coverage to include full backend API endpoint testing with edge cases
+- Perform database integration testing for Supabase queries and data relationships
+- Implement system health monitoring and load testing
+- Conduct frontend UI testing for integrations page and related dashboard components
+- Enhance authentication and authorization flows for commands and API access
+- Improve test suite to cover more scenarios and automate testing
 
-## Phase 4: Client Portal (3 Weeks)
-- [ ] Authentication
-  - Client accounts
-  - Role permissions
-  - Access control
-- [ ] Portal features
-  - Project viewing
-  - File sharing
-  - Feedback system
-  - Approvals
+## Future Enhancements
 
-## Phase 5: AI Features (3 Weeks)
-- [ ] OpenAI integration
-  - API setup
-  - Context management
-  - Response handling
-- [ ] AI assistants
-  - Design helper
-  - Project planner
-  - Content generator
+- MCP integration commands and services
+- AI-powered design suggestions and project analysis commands
+- Workflow engine for multi-step and conditional command execution
+- Analytics and business intelligence features
 
-## Phase 6: Mobile (4 Weeks)
-- [ ] React Native app
-  - Core screens
-  - Offline support
-  - File sync
-  - Push notifications
-- [ ] Field tools
-  - Measurements
-  - Photos
-  - Notes
-  - Sketches
+---
 
-## Phase 7: Enterprise (4 Weeks)
-- [ ] Advanced features
-  - Multi-tenant
-  - White-label
-  - Analytics
-  - Reporting
-- [ ] Integrations
-  - Google Workspace
-  - Xero
-  - AutoCAD
-  - Supplier APIs
-
-## Quality Standards
-
-See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for detailed testing requirements, performance targets, and security measures.
+This roadmap will be updated continuously as development progresses.

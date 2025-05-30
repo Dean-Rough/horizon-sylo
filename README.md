@@ -69,7 +69,7 @@ cp .env.local.example .env.local
 npm run dev
 ```
 
-Visit `http://localhost:3000` to see the application.
+Visit `http://localhost:3025` to see the application.
 
 ## 🔧 Configuration
 

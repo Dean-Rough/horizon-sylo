@@ -1,138 +1,193 @@
-# Product Requirements Document
+# Sylo - Product Requirements Document
 
-## Project Overview
+## Overview
 
-Sylo is a specialized project management platform for interior designers and architects, built on a foundation of AI-powered assistance. Starting from a Horizon UI boilerplate with OpenAI integration, we're evolving it into a comprehensive design studio management tool.
-
-## Current State (Baseline)
-
-**What we have now:**
-- Horizon UI boilerplate with AI chat functionality
-- Next.js 15 + React 19 + Supabase + OpenAI integration
-- Basic user authentication and subscription management
-- Shadcn UI component library
-- Stripe payment integration
-
-**What we're building toward:**
-A comprehensive design studio dashboard with project management, material libraries, client collaboration, and AI-powered workflow automation.
+Sylo is a specialized project management platform for interior designers and architects, built with a modular, scalable architecture and AI-powered assistance.
 
 ## Problem Statement
 
-Design professionals struggle with generic project management tools that don't address their specific needs:
-- No integrated material/finish management
-- Poor visualization of design concepts
-- Inefficient client approval workflows
+Interior design professionals face challenges with existing project management tools:
+- Generic tools lack design-specific workflows and features
+- No integrated material/finish management system
+- Poor visualization and presentation capabilities
+- Inefficient client approval processes
 - Disconnected communication channels
-- Generic AI tools that don't understand design workflows
+- Limited AI assistance for design tasks
 
 ## Target Users
 
 ### Primary Users
-- **Interior Designers**: Professionals who need to manage projects, specify materials, and communicate with clients
-- **Design Project Managers**: Team leads who oversee multiple projects and need to track progress
-- **Design Firm Administrators**: Staff who manage suppliers, invoicing, and business operations
+- **Interior Designers**
+  - Need: Project management, material specification, client communication
+  - Pain Points: Time spent on admin tasks, managing design assets, client approvals
+  - Goals: Streamline workflows, improve client collaboration
+
+- **Design Project Managers**
+  - Need: Resource allocation, timeline management, progress tracking
+  - Pain Points: Coordinating teams, tracking deliverables, managing timelines
+  - Goals: Better project visibility, efficient resource management
+
+- **Design Firm Administrators**
+  - Need: Business operations, supplier management, invoicing
+  - Pain Points: Managing multiple systems, tracking financials
+  - Goals: Centralized operations, automated workflows
 
 ### Secondary Users
-- **Clients**: External stakeholders who need to view progress and approve designs
-- **Vendors and Contractors**: Limited access for collaboration
+- **Clients**
+  - Need: Project updates, design approval, asset access
+  - Goals: Easy communication, clear project visibility
+
+- **Vendors/Contractors**
+  - Need: Specification access, timeline coordination
+  - Goals: Streamlined collaboration
 
 ## Core Features
 
-### 1. AI Assistant with Agentic Capabilities
-- **Vision Processing**: Analyze uploaded images, CAD drawings, and site photos
-- **File Management**: Organize, tag, and retrieve project files
-- **CRUD Operations**: Create, read, update, and delete data across the platform
-- **Voice Interface**: Hands-free interaction with the assistant
-- **Integration Control**: Manage connected services (Google, Xero, etc.)
+### 1. Project Management System
+- **Project Organization**
+  - Hierarchical structure: Client > Project > Tasks
+  - Custom project templates
+  - Timeline visualization
+  - Resource allocation
+  - Budget tracking
 
-### 2. Project Management
-- **Asana-style Task Management**: Create, assign, and track tasks
-- **Client > Projects > Tasks Hierarchy**: Organized data structure
-- **Timeline Views**: Visualize project schedules and deadlines
-- **Team Collaboration**: Assign team members to projects and tasks
-- **Status Tracking**: Monitor project progress
-- **Kanban boards with visual previews**
-- **Resource allocation**
+- **Task Management**
+  - Kanban boards with visual previews
+  - Task dependencies
+  - Time tracking
+  - Priority management
+  - Custom workflows
 
-### 3. Material Library
-- **Searchable Database**: Find materials by properties, appearance, or sustainability
-- **Material Properties**: Technical specifications for each material
-- **Swatches and Samples**: Visual references and sample ordering
-- **Supplier Links**: Connect materials to suppliers
-- **Sustainability Metrics**: Environmental impact data
-- **Product catalogs with specifications**
+### 2. Material Library
+- **Material Database**
+  - Searchable catalog
+  - Material specifications
+  - Supplier information
+  - Sustainability metrics
+  - Cost tracking
 
-### 4. Client Portal
-- **Project Progress Viewing**: Clients can see status updates
-- **Design Approval Workflow**: Submit and receive feedback on designs
-- **Asset Management**: Access to approved brand assets and design files
-- **Communication Channel**: Direct messaging with design team
-- **Controlled access and permissions**
+- **Sample Management**
+  - Sample tracking
+  - Check-out system
+  - Return reminders
+  - Digital swatches
 
-### 5. Brand Asset Management
-- **Asset Organization**: Store and categorize brand assets by project
-- **Version Control**: Track changes to design files
-- **Approval Workflows**: Get client sign-off on assets
-- **Usage Guidelines**: Store brand standards documentation
-- **File organization for design assets**
+### 3. Client Portal
+- **Project Dashboard**
+  - Progress overview
+  - Timeline view
+  - Budget status
+  - Communication history
 
-### 6. Mobile Companion App
-- **Site Measurements**: Record dimensions on location
-- **Photo Documentation**: Capture and organize site photos
-- **Voice Notes**: Record observations via voice
-- **Offline Access**: Work without internet connection
+- **Approval System**
+  - Design presentation
+  - Feedback collection
+  - Version tracking
+  - Sign-off workflow
 
-### 7. Visualization
-- **2D/3D model viewing**
-- **Material and finish visualization**
-- **Measurement and annotation tools**
-- **AR previews (future)**
+### 4. Design Asset Management
+- **Asset Organization**
+  - Project-based structure
+  - Version control
+  - Metadata management
+  - Quick search
 
-## User Stories
+- **Collaboration Tools**
+  - Shared workspaces
+  - Comment threads
+  - Review system
+  - Access control
 
-### Interior Designer
-- As a designer, I want to create visual project boards so I can track progress visually
-- As a designer, I want to organize materials by project so I can quickly reference specifications
-- As a designer, I want to share design concepts with clients so I can get timely approvals
+### 5. AI Assistant
+- **Design Support**
+  - Style recommendations
+  - Material suggestions
+  - Space planning assistance
+  - Design validation
 
-### Studio Manager
-- As a manager, I want to see resource allocation across projects so I can balance workloads
-- As a manager, I want to track project timelines so I can manage client expectations
-- As a manager, I want to monitor client communication so I can ensure quality service
+- **Project Assistance**
+  - Task automation
+  - Timeline optimization
+  - Resource suggestions
+  - Risk identification
 
-### Client
-- As a client, I want to view design progress so I can stay informed
-- As a client, I want to provide feedback on designs so I can ensure my preferences are incorporated
-- As a client, I want to approve design elements so I can participate in the design process
-
-## Integrations
-
-- **Google Workspace**: Calendar, Drive, Docs, Sheets, Gmail, Meet
-- **Xero**: Accounting and invoicing
-- **OpenAI**: GPT models and DALL-E for image generation
-- **CAD Software**: Import and analyze technical drawings
-
-## User Experience Requirements
-
-- **Intuitive Interface**: Minimal learning curve for design professionals
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Dark/Light Mode**: Support for both visual preferences
-- **Accessibility**: WCAG 2.1 AA compliance
+### 6. Mobile Companion
+- **Field Tools**
+  - Site measurements
+  - Photo documentation
+  - Voice notes
+  - Offline access
 
 ## Technical Requirements
 
-- **Real-time Updates**: Changes sync across devices immediately
-- **Secure Authentication**: Role-based access control
-- **Data Encryption**: Protect sensitive client information
-- **API-first Architecture**: Enable future integrations
-- **Scalable Infrastructure**: Support growing teams and projects
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for detailed technical architecture, security, and performance specifications.
+
+## Integrations
+
+### Core Integrations
+- **Google Workspace**
+  - Calendar sync
+  - Drive storage
+  - Document collaboration
+  - Email integration
+
+- **Financial Systems**
+  - Xero accounting
+  - Stripe payments
+  - Invoice management
+  - Expense tracking
+
+### Design Tools
+- **CAD/3D**
+  - SketchUp integration
+  - AutoCAD support
+  - 3D model viewing
+  - Measurement tools
+
+- **Design Resources**
+  - Pinterest integration
+  - Material databases
+  - Supplier catalogs
+  - Trend analysis
 
 ## Success Metrics
 
-- **Time Savings**: Reduce administrative work by 40%
-- **Project Completion Rate**: Improve on-time delivery by 25%
-- **Client Satisfaction**: Achieve 90%+ satisfaction ratings
-- **Team Adoption**: 80%+ daily active usage among team members
-- **User adoption rate among design professionals**
-- **Reduction in client approval cycle time**
-- **Increase in project completion efficiency**
+### Business Metrics
+- **User Adoption**
+  - 80%+ team activation
+  - 60%+ daily active users
+  - 40% reduction in admin time
+
+- **Client Satisfaction**
+  - 90%+ satisfaction rate
+  - 50% faster approvals
+  - 30% better communication
+
+### Technical Metrics
+- **Performance**
+  - 99.9% uptime
+  - < 1s average response time
+  - < 0.1% error rate
+
+- **Engagement**
+  - 70% feature utilization
+  - 50% mobile adoption
+  - 40% AI tool usage
+
+## Future Considerations
+
+### Scalability
+- Multi-tenant architecture
+- Geographic expansion
+- Enterprise features
+- White-label options
+
+### Innovation
+- AR/VR integration
+- Machine learning enhancements
+- IoT device support
+- Advanced analytics
+
+## Implementation Guidelines
+
+See [`ARCHITECTURE.md`](./ARCHITECTURE.md) and [`SETUP.md`](./SETUP.md) for development principles, quality standards, and implementation details.

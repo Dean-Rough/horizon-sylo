@@ -52,6 +52,14 @@ export const routes: IRoute[] = [
     collapse: false
   },
   {
+    name: 'Sylo-Core Testing',
+    path: '/dashboard/sylo-core-chat',
+    icon: (
+      <HiOutlineCog8Tooth className="-mt-[7px] h-4 w-4 stroke-2 text-inherit" />
+    ),
+    collapse: false
+  },
+  {
     name: 'Profile Settings',
     path: '/dashboard/settings',
     icon: (
